@@ -1,0 +1,146 @@
+body {
+  background-color: #fdfdfd;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+/* Main container */
+.container {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 600px;
+  width: 100%;
+}
+
+/* Logo & name */
+.logo-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.logo {
+  height: 80px;
+  margin-bottom: 0.5rem;
+}
+
+h2 {
+  margin: 0;
+  font-weight: 600;
+}
+
+/* Motto */
+.moto {
+  font-family: "Playwrite HU", cursive;
+  font-size: clamp(2rem, 6vw, 4rem); /* Responsive scaling */
+  font-weight: 500;
+  margin-bottom: 2rem;
+}
+
+.moto span {
+  font-family: Arial, Helvetica, sans-serif;;
+}
+
+/* Description */
+.passage {
+  max-width: 500px;
+  margin-bottom: 1rem;
+  color: #3a3a3a;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.input-button-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5em;
+  width: 80%;
+  justify-content: center;
+}
+
+.input {
+  flex: 1 1 220px;
+  padding: 12px;
+  border-radius: 12px;
+  border: 1.5px solid lightgrey;
+  outline: none;
+  transition: all 0.3s ease;
+  box-shadow: 0px 0px 20px -18px;
+}
+
+.input:hover {
+  border: 2px solid lightgrey;
+  box-shadow: 0px 0px 20px -17px;
+}
+
+.input:focus {
+  border: 2px solid grey;
+}
+
+
+.button {
+  padding: 0.9rem 2rem;
+  font-weight: 700;
+  background: #fff;
+  color: rgb(43, 76, 226);
+  cursor: pointer;
+  border-radius: 0.5rem;
+  border: 2px solid rgb(43, 76, 226);
+  transition: box-shadow 0.3s ease;
+}
+
+.button:hover {
+  box-shadow: rgba(20, 55, 195, 0.4) 5px 5px,
+              rgba(20, 55, 195, 0.4) 10px 10px;
+}
+
+#error-alert {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: 400px;
+  width: 90%;
+  background-color: #ffe5e5;
+  border: 1.5px solid #ff4d4d;
+  color: #d00000;
+  padding: 0.8rem 1rem;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  text-align: center;
+  box-shadow: 0px 4px 10px rgba(255, 0, 0, 0.1);
+  z-index: 1000;
+  margin-top: 10px;
+}
+
+
+/* Responsive adjustments */   
+
+/* Mobile tweaks */
+@media (max-width: 600px) {
+  .passage {
+      font-size: 0.95rem;
+      padding: 0 1rem;
+  }
+  .input{
+    height: 12px;
+  }
+  .input-button-group {
+      flex-direction: column;
+  }
+
+  .button {
+      width: 100%;
+  }
+}
