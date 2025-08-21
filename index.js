@@ -11,19 +11,7 @@ const header = document.getElementById("moto")
 const passage = document.querySelector('.passage')
 const oneLiner = document.getElementById("one-liner");
 
-function waitForTurnstileReady(widgetId, callback) {
-  const interval = setInterval(() => {
-    try {
-      const token = turnstile.getResponse(widgetId);
-      if (token !== "") {
-        clearInterval(interval);
-        callback(token);
-      }
-    } catch (err) {
-      // Widget not ready yet
-    }
-  }, 100);
-}
+
 
 function validateEmail(email) {
   const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -37,56 +25,57 @@ async function addToMailingList(email) {
     return;
   }
 
-  // Wait until Turnstile widget is ready
-  waitForTurnstileReady("cf-turnstile-widget", async (token) => {
-    if (!token) {
-      showError("Please complete the CAPTCHA.");
+  // Check if Turnstile is solved
+  const token = turnstile.getResponse("cf-turnstile-widget");
+  if (!token) {
+    showError("Please complete the CAPTCHA.");
+    return;
+  }
+
+  const referrer = document.referrer || "Direct";
+
+  // Use IP API to get approximate location (city + country)
+  let location = null;
+  try {
+    const res = await fetch("https://ipapi.co/json");
+    const locationData = await res.json();
+    location = `${locationData.city}, ${locationData.country_name}`;
+  } catch (err) {
+    console.warn("Could not get location", err);
+  }
+
+  try {
+    // --- NEW: Call your Edge Function instead of inserting directly ---
+    const response = await fetch("/functions/v1/join-waitlist", { // replace with your actual function URL if needed
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email, token, referrer, location })
+    });
+    const data = await response.json();
+
+    if (!response.ok) {
+      showError(data.error || "Something went wrong.");
       return;
     }
 
-    const referrer = document.referrer || "Direct";
-
-    let location = null;
-    try {
-      const res = await fetch("https://ipapi.co/json");
-      const locationData = await res.json();
-      location = `${locationData.city}, ${locationData.country_name}`;
-    } catch (err) {
-      console.warn("Could not get location", err);
+    if (data.duplicate) {
+      showError("This email is already signed up.");
+      return;
     }
 
-    try {
-      const response = await fetch("/functions/v1/join-waitlist", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, token, referrer, location })
-      });
+    // Success → update UI
+    header.textContent = "You're on the WaitList! 🎉";
+    passage.textContent =
+      "Thanks for joining the waitlist for Riser, We're really happy to welcome more users gradually. \nWe're still building. You'll be the first to know when we launch ";
+    input.style.display = 'none';
+    join.style.display = 'none';
+    oneLiner.style.display = 'none';
+    input.value = "";
 
-      const data = await response.json();
-
-      if (!response.ok) {
-        showError(data.error || "Something went wrong.");
-        return;
-      }
-
-      if (data.duplicate) {
-        showError("This email is already signed up.");
-        return;
-      }
-
-      // Success UI
-      header.textContent = "You're on the WaitList! 🎉";
-      passage.textContent =
-        "Thanks for joining the waitlist for Riser. We're happy to welcome more users gradually.";
-      input.style.display = 'none';
-      join.style.display = 'none';
-      oneLiner.style.display = 'none';
-      input.value = "";
-    } catch (err) {
-      console.error("❌ Error calling Edge Function:", err);
-      showError("Network error. Try again later.");
-    }
-  });
+  } catch (err) {
+    console.error("❌ Error calling Edge Function:", err);
+    showError("Network error. Try again later.");
+  }
 }
   // Handle button click
   join.addEventListener('click', () => {
