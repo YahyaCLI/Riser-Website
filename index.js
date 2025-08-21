@@ -88,7 +88,7 @@ window.onload = () => {
       console.log("Turnstile token ready:", token);
     }
   });
-  // Handle button click
+
   join.addEventListener('click', () => {
     const email = input.value.trim();
     addToMailingList(email);
@@ -102,6 +102,7 @@ window.onload = () => {
     }
   });
 
+  // Show error alert
   function showError(message) {
     const alertBox = document.getElementById("error-alert");
     alertBox.textContent =  message;
@@ -111,4 +112,4 @@ window.onload = () => {
       alertBox.style.display = "none";
     }, 4000);
   }
-  
+}
