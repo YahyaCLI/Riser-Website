@@ -76,7 +76,7 @@ const oneLiner = document.getElementById("one-liner");
 
   function showError(message) {
     const alertBox = document.getElementById("error-alert");
-    alertBox.textContent = "❗" + message;
+    alertBox.textContent = message;
     alertBox.style.display = "block";
 
     setTimeout(() => {
