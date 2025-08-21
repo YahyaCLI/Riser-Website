@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="index.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playwrite+HU:wght@100..400&display=swap"
+      rel="stylesheet"
+    />
+    <title>Riser — Waitlist</title>
+  </head>
+  <body>
+<!-- Cloudflare Turnstile -->
+    <div class="cf-turnstile"
+     data-sitekey="0x4AAAAAABtmpRNrSpmvCfAy"
+     data-theme="light" 
+     data-size="normal"  
+     id="cf-turnstile-widget">
+    </div>
+
+    <div id="error-alert" style="display: none"></div>
+    <div class="container">
+      <div class="logo-container">
+        <img class="logo" src="riser-logo-black.png" alt="" riser-logo-black />
+        <h2>Riser</h2>
+      </div>
+      <h1 class="moto" id="moto">
+        Breeze<span>
+          <style>
+            .moto span {
+              font-family: Arial, Helvetica, sans-serif;
+            }
+          </style>
+          Through Windows</span
+        >
+      </h1>
+      <p class="passage">
+        The command hub with powerful shortcuts, blazing fast search results,
+        and tools to launch, control, and execute anything — all from your
+        keyboard.
+      </p>
+      <div class="input-button-group">
+        <input
+          type="text"
+          class="input"
+          id="input"
+          placeholder="Enter your email..."
+        />
+        <button class="button" id="join">
+          <span class="button_top">Join!</span>
+        </button>
+        <p style="text-align: center; font-size: 0.87rem; color: #555555">
+          Join the waitlist to be among the first to try it — for free!
+        </p>
+      </div>
+
+      <img
+        class="app-screenshot"
+        src="upgraded app concept.jpg"
+        alt="app-screenshot"
+      />
+      <p style="text-align: center; font-size: 0.8rem; color: #888">
+        This is a concept of the app, the final design may vary.
+      </p>
+    </div>
+    <!-- Features -->
+    <section class="features">
+      <h2 class="features-title">Windows, but effortless</h2>
+      <p class="features-subtitle">
+        Riser combines powerful utilities and thoughtful design into a minimal
+        all in one tool that elevates your workflow.
+      </p>
+
+      <div class="features-grid">
+        <div class="feature">
+          <div class="icon">
+            <img style="height: 50px" src="icons/magnifier.png" alt="" />
+          </div>
+          <h3>Blazing Fast Search</h3>
+          <p>
+            Find files, apps, and commands in milliseconds. Riser indexes your
+            system locally for instant, offline access to everything you need.
+          </p>
+        </div>
+
+        <div class="feature">
+          <div class="icon">
+            <img style="height: 50px" src="icons/keyboard.png" alt="" />
+          </div>
+          <h3>Powerful Shortcuts</h3>
+          <p>
+            “Create powerful custom shortcuts that launch apps, switch workspaces,
+             or control your system— all with a single key combination.”
+          </p>
+        </div>
+
+        <div class="feature" style="height: 250px">
+          <div class="icon">
+            <img style="height: 50px" src="icons/layers.png" alt="" />
+          </div>
+          <h3>Workspace Launcher</h3>
+          <p>
+            Set up and launch your entire work environment or your project — apps, folders, and
+            websites — with a single, custom command. Perfect for context
+            switching.
+          </p>
+        </div>
+
+        <div class="feature">
+          <div class="icon">
+            <img style="height: 25px" src="icons/chip.png" alt="" />
+          </div>
+          <h3>System Integration</h3>
+          <p>
+            Instantly control your microphone, camera, audio sources, and other
+            general system   settings. Riser puts all your essential controls
+            — just like a Stream Deck.
+          </p>
+        </div>
+
+        <div class="feature">
+          <div class="icon">
+            <img style="height: 60px" src="icons/privacy.png" alt="" />
+          </div>
+          <h3>Offline & Private</h3>
+          <p>
+            Runs entirely on your machine. No cloud, no tracking, no data
+            collection. Your data always stays yours.
+          </p>
+        </div>
+      </div>
+
+      <div class="feature highlight">
+        <div class="icon">
+          <img style="height: 50px" src="icons/card-game.png" alt="" />
+        </div>
+        <h3>This Is Just The Beginning</h3>
+        <p>
+              Riser will keep evolving with smarter tools, thoughtful automations, and seamless integrations and a powerful Pro version on the horizon to take productivity even further."
+        </p>
+      </div>
+    </section>
+    <footer class="footer" >
+      <p>
+        © 2025 Riser. All rights reserved.
+      </p>
+
+      <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+      <script type="module" src="index.js"></script>
+  </body>
+</html>

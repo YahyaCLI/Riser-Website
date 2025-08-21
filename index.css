@@ -1,0 +1,229 @@
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #fdfdfd;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column; /* stack naturally */
+  align-items: center;
+  padding: 2rem;
+  box-sizing: border-box;
+  transition: 1s ease-in-out;
+}
+
+/* Main container */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 600px;
+  width: 100%;
+  margin-top: 8%; /* spacing from top */
+}
+
+/* Logo & name */
+.logo-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.logo {
+  height: 80px;
+  margin-bottom: 0.5rem;
+}
+
+h2 {
+  margin: 0;
+  font-weight: 600;
+}
+
+/* Motto */
+.moto {
+  font-family: "Playwrite HU", cursive;
+  font-size: clamp(5rem, 6vw, 4rem);
+  font-weight: 500;
+  margin-bottom: 2rem;
+}
+
+.moto span {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Description */
+.passage {
+  max-width: 500px;
+  margin-top: 1rem;
+  color: #3a3a3a;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.input-button-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5em;
+  width: 80%;
+  justify-content: center;
+}
+
+.input {
+  flex: 1 1 220px;
+  padding: 12px;
+  border-radius: 12px;
+  border: 1.5px solid lightgrey;
+  outline: none;
+  transition: all 0.3s ease;
+  box-shadow: 0px 0px 20px -18px;
+}
+
+.input:hover {
+  border: 2px solid lightgrey;
+  box-shadow: 0px 0px 20px -17px;
+}
+
+.input:focus {
+  border: 2px solid grey;
+}
+
+.button {
+  padding: 0.9rem 2rem;
+  font-weight: 700;
+  background: #fff;
+  color: rgb(43, 76, 226);
+  cursor: pointer;
+  border-radius: 0.5rem;
+  border: 2px solid rgb(43, 76, 226);
+  transition: box-shadow 0.3s ease;
+}
+
+.button:hover {
+  box-shadow: rgba(20, 55, 195, 0.4) 5px 5px,
+              rgba(20, 55, 195, 0.4) 10px 10px;
+}
+
+.app-screenshot {
+  max-width: 150%;
+  height: auto;
+  margin-top: 6rem;
+  border-radius: 12px;
+  box-shadow: rgba(0, 0, 0, 0.1) 4px 4px 6px -1px,
+              rgba(0, 0, 0, 0.06) 10px 2px 4px -1px;
+} 
+
+/* Features Section */
+.features {
+  max-width: 1100px;
+  margin: 6rem auto; /* pushes features below screenshot */
+  padding: 0 1rem;
+  text-align: center;
+}
+
+.features-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.features-subtitle {
+  color: #6b7280;
+  max-width: 600px;
+  margin: 0 auto 3rem;
+}
+
+/* Feature Grid */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.feature {
+  background-color: #f3f3f3;
+  border-width: 1px;
+  border-radius: 12px;
+  padding: 1.5rem;
+  text-align: left;
+  height: 250px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+
+.feature .icon {
+  font-size: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.feature h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.feature p {
+  font-size: 0.95rem;
+  color: #4b5563;
+}
+
+/* Highlighted card */
+.feature.highlight {
+  background-color: #252f47;
+  color: #fff;
+  text-align: left;
+  height: 200px;
+}
+
+.feature.highlight p {
+  color: #e4e4e4;
+}
+
+.feature.highlight .icon {
+  font-size: 1.5rem;
+}
+
+
+
+/* Error Alert */
+#error-alert {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: 400px;
+  width: 90%;
+  background-color: #ffe5e5;
+  border: 1.5px solid #ff4d4d;
+  color: #d00000;
+  padding: 0.8rem 1rem;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  text-align: center;
+  box-shadow: 0px 4px 10px rgba(255, 0, 0, 0.1);
+  z-index: 1000;
+  margin-top: 10px;
+}
+
+/* Responsive tweaks */
+@media (max-width: 600px) {
+  .passage {
+      font-size: 0.95rem;
+      padding: 0 1rem;
+  }
+  .input {
+    height: 12px;
+  }
+  .input-button-group {
+      flex-direction: column;
+  }
+  .button {
+      width: 100%;
+  }
+}
