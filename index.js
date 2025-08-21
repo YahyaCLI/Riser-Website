@@ -52,7 +52,6 @@ const oneLiner = document.getElementById("one-liner");
       passage.textContent = "Thanks for joining the waitlist for Riser, We're really happy to welcome more users gradually. \nWe're still building. You'll be the first to know when we launch "
       input.style.display = 'none'
       join.style.display = 'none'
-      oneLiner.style.display = 'none'
       input.value = "";
 
     } catch (err) {
