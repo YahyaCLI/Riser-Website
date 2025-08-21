@@ -27,7 +27,7 @@ async function addToMailingList(email) {
   }
 
   // Check if Turnstile is solved
-  const token = turnstile.getResponse("cf-turnstile-widget");
+  const token = turnstile.getResponse("widgetId");
   if (!token) {
     showError("Please complete the CAPTCHA.");
     return;
@@ -78,6 +78,16 @@ async function addToMailingList(email) {
     showError("Network error. Try again later.");
   }
 }
+
+let widgetId;
+
+window.onload = () => {
+  widgetId = turnstile.render('#cf-turnstile-widget', {
+    sitekey: '0x4AAAAAABtmpRNrSpmvCfAy',
+    callback: (token) => {
+      console.log("Turnstile token ready:", token);
+    }
+  });
   // Handle button click
   join.addEventListener('click', () => {
     const email = input.value.trim();
