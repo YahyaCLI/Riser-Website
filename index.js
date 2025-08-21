@@ -79,27 +79,18 @@ async function addToMailingList(email) {
   }
 }
   // Handle button click
-window.onload = () => {
-  // Explicitly render the widget into your div
-  turnstile.render('#cf-turnstile-widget', {
-    sitekey: '0x4AAAAAABtmpRNrSpmvCfAy',
-    theme: 'light',
-    size: 'normal'
-  });
-
-  // Attach listeners only after rendering
   join.addEventListener('click', () => {
     const email = input.value.trim();
     addToMailingList(email);
   });
 
+  // Handle Enter key
   input.addEventListener('keypress', (event) => {
     if (event.key === 'Enter') {
       const email = input.value.trim();
       addToMailingList(email);
     }
   });
-};
 
   function showError(message) {
     const alertBox = document.getElementById("error-alert");
