@@ -23,7 +23,7 @@ async function addToMailingList(email) {
   }
 
   // Check if Turnstile is solved
-  const token = turnstileResponse.getResponse("cf-turnstile-widget");
+  const token = turnstile.getResponse("cf-turnstile-widget");
   if (!token) {
     showError("Please complete the CAPTCHA.");
     return;
