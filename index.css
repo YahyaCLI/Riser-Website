@@ -218,8 +218,8 @@ h2 {
       padding: 0 1rem;
   }
   .input {
-    height: 12px;
-  }
+    max-height: 30px;
+    }
   .input-button-group {
       flex-direction: column;
   }
